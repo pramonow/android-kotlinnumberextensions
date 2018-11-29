@@ -24,14 +24,14 @@ fun Long.absolute():Long {
     return this
 }
 
-fun Long.log():Int {
+fun Long.log(logValue:Int = 2):Int {
 
     var value = 0;
     var originalValue = this
 
-    while(this >= 2)
+    while(this >= logValue)
     {
-        originalValue = originalValue/2
+        originalValue = originalValue/logValue
         value++
     }
 

@@ -24,15 +24,23 @@ fun Float.absolute():Float {
     return this
 }
 
-fun Float.log():Int {
+fun Float.log(logValue:Int = 2):Float {
 
-    var value = 0;
+    var value = 0F
+    var valueEach = 0F
     var originalValue = this
+    var decimalPoint = 0
+    var divider = 10F
 
-    while(this >= 2)
-    {
-        originalValue = originalValue/2
-        value++
+    while(decimalPoint < 5) {
+        while (this >= logValue) {
+            originalValue = originalValue / logValue
+            valueEach++
+        }
+
+        value = value + valueEach/divider.power(decimalPoint)
+        decimalPoint++;
+        originalValue = originalValue.power(logValue)
     }
 
     return value
@@ -46,4 +54,14 @@ fun Float.isNegative():Boolean{
 fun Float.isPositive():Boolean{
     if(this < 0) return false
     return true
+}
+
+fun Float.inverse():Float{
+    return 1/this
+}
+
+fun Float.round():Float{
+    var value = (this + 0.5).toInt()
+
+    return value.toFloat()
 }

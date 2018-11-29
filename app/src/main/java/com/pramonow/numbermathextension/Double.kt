@@ -24,15 +24,23 @@ fun Double.absolute():Double {
     return this
 }
 
-fun Double.log():Int {
+fun Double.log(logValue:Int = 2):Double {
 
-    var value = 0;
+    var value = 0.0
+    var valueEach = 0.0
     var originalValue = this
+    var decimalPoint = 0
+    var divider = 10.0
 
-    while(this >= 2)
-    {
-        originalValue = originalValue/2
-        value++
+    while(decimalPoint < 5) {
+        while (this >= logValue) {
+            originalValue = originalValue / logValue
+            valueEach++
+        }
+
+        value = value + valueEach/divider.power(decimalPoint)
+        decimalPoint++;
+        originalValue = originalValue.power(logValue)
     }
 
     return value
@@ -46,4 +54,14 @@ fun Double.isNegative():Boolean{
 fun Double.isPositive():Boolean{
     if(this < 0) return false
     return true
+}
+
+fun Double.inverse():Double{
+    return 1/this
+}
+
+fun Double.round():Double{
+    var value = (this + 0.5).toInt()
+
+    return value.toDouble()
 }
