@@ -10,9 +10,9 @@ fun Long.cubic():Long {
 
 fun Long.power(pow:Int):Long{
 
-    var value = this
-    repeat(pow-1) {
-        value*this
+    var value = 1L
+    repeat(pow) {
+        value = value*this
     }
 
     return value
@@ -29,7 +29,7 @@ fun Long.log(logValue:Int = 2):Int {
     var value = 0;
     var originalValue = this
 
-    while(this >= logValue)
+    while(originalValue >= logValue)
     {
         originalValue = originalValue/logValue
         value++
@@ -67,16 +67,16 @@ fun Long.primeFactor():List<Long>{
 
 fun Long.fibonacci():Long{
 
-    var value:Long = 1
-    var prevValue:Long
+    var value:Long = 1L
+    var prevValue:Long = 0L
 
     if(this == 1L || this == 2L)
-        return 1
+        return 1L
 
     for(i in 3..this)
     {
-        prevValue = value
-        value = prevValue + value
+        prevValue = value - prevValue
+        value = value + prevValue
     }
 
     return value
@@ -97,7 +97,7 @@ fun Long.isPrime():Boolean{
     if(this <= 1 || this%2 == 0L)
         return false
 
-    for (i in 3..this step 2)
+    for (i in 3..this/2 step 2)
     {
         if(this % i == 0L)
             return false

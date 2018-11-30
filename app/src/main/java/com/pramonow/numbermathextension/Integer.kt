@@ -10,9 +10,9 @@ fun Int.cubic():Int {
 
 fun Int.power(pow:Int):Int{
 
-    var value = this
-    repeat(pow-1) {
-        value*this
+    var value = 1
+    repeat(pow) {
+        value = value*this
     }
 
     return value
@@ -29,7 +29,7 @@ fun Int.log(logValue:Int = 2):Int {
     var value = 0;
     var originalValue = this
 
-    while(this >= logValue)
+    while(originalValue >= logValue)
     {
         originalValue = originalValue/logValue
         value++
@@ -68,15 +68,15 @@ fun Int.primeFactor():List<Int>{
 fun Int.fibonacci():Int{
 
     var value:Int = 1
-    var prevValue:Int
+    var prevValue:Int = 0
 
     if(this == 1 || this == 2)
         return 1
 
     for(i in 3..this)
     {
-        prevValue = value
-        value = prevValue + value
+        prevValue = value - prevValue
+        value = value + prevValue
     }
 
     return value
@@ -97,7 +97,7 @@ fun Int.isPrime():Boolean{
     if(this <= 1 || this%2 == 0)
         return false
 
-    for (i in 3..this step 2)
+    for (i in 3..this/2 step 2)
     {
         if(this % i == 0)
             return false
