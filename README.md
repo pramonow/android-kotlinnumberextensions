@@ -1,6 +1,23 @@
-# Number Type Extensions for Kotlin
+# Number Type Extensions for Kotlin [![](https://jitpack.io/v/pramonow/android-kotlinnumberextensions.svg)](https://jitpack.io/#pramonow/android-kotlinnumberextensions)
+
+
 
 Number Extensions for Kotlin
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+  
+Dependency
+
+	dependencies {
+	        implementation 'com.github.pramonow:android-kotlinnumberextensions:Tag'
+	}
+  
+
 
 List of mathemathical formula:
 
