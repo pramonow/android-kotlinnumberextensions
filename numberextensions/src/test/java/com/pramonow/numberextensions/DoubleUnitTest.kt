@@ -1,5 +1,6 @@
-package com.pramonow.numbermathextension
+package com.pramonow.numberextensions
 
+import com.pramonow.numberextensions.*
 import org.junit.Assert
 import org.junit.Test
 

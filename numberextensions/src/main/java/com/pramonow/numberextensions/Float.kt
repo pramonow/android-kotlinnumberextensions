@@ -1,4 +1,4 @@
-package com.pramonow.numbermathextension
+package com.pramonow.numberextensions
 
 fun Float.square():Float {
     return this*this
@@ -10,9 +10,9 @@ fun Float.cubic():Float {
 
 fun Float.power(pow:Int):Float{
 
-    var value = this
-    repeat(pow-1) {
-        value*this
+    var value = 1F
+    repeat(pow) {
+        value = value*this
     }
 
     return value
@@ -24,23 +24,15 @@ fun Float.absolute():Float {
     return this
 }
 
-fun Float.log(logValue:Int = 2):Float {
+fun Float.log(logValue:Int = 2):Int {
 
-    var value = 0F
-    var valueEach = 0F
+    var value = 0;
     var originalValue = this
-    var decimalPoint = 0
-    var divider = 10F
 
-    while(decimalPoint < 5) {
-        while (this >= logValue) {
-            originalValue = originalValue / logValue
-            valueEach++
-        }
-
-        value = value + valueEach/divider.power(decimalPoint)
-        decimalPoint++;
-        originalValue = originalValue.power(logValue)
+    while(originalValue >= logValue)
+    {
+        originalValue = originalValue/logValue
+        value++
     }
 
     return value

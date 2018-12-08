@@ -1,4 +1,4 @@
-package com.pramonow.numbermathextension
+package com.pramonow.numberextensions
 
 fun Double.square():Double {
     return this*this
@@ -10,9 +10,9 @@ fun Double.cubic():Double {
 
 fun Double.power(pow:Int):Double{
 
-    var value = this
-    repeat(pow-1) {
-        value*this
+    var value = 1.0
+    repeat(pow) {
+        value = value*this
     }
 
     return value
@@ -24,23 +24,15 @@ fun Double.absolute():Double {
     return this
 }
 
-fun Double.log(logValue:Int = 2):Double {
+fun Double.log(logValue:Int = 2):Int {
 
-    var value = 0.0
-    var valueEach = 0.0
+    var value = 0;
     var originalValue = this
-    var decimalPoint = 0
-    var divider = 10.0
 
-    while(decimalPoint < 5) {
-        while (this >= logValue) {
-            originalValue = originalValue / logValue
-            valueEach++
-        }
-
-        value = value + valueEach/divider.power(decimalPoint)
-        decimalPoint++;
-        originalValue = originalValue.power(logValue)
+    while(originalValue >= logValue)
+    {
+        originalValue = originalValue/logValue
+        value++
     }
 
     return value

@@ -1,5 +1,6 @@
-package com.pramonow.numbermathextension
+package com.pramonow.numberextensions
 
+import com.pramonow.numberextensions.*
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -15,6 +16,9 @@ class IntegerUnitTest {
         else
             assertTrue(false)
     }
+
+    var integerNumber = 5;
+    var powerNumber = integerNumber.square() //25
 
     @Test
     fun cubicIsCorrect() {

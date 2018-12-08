@@ -1,16 +1,16 @@
-package com.pramonow.numbermathextension
+package com.pramonow.numberextensions
 
-fun Long.square():Long {
+fun Int.square():Int {
     return this*this
 }
 
-fun Long.cubic():Long {
+fun Int.cubic():Int {
     return this*this*this
 }
 
-fun Long.power(pow:Int):Long{
+fun Int.power(pow:Int):Int{
 
-    var value = 1L
+    var value = 1
     repeat(pow) {
         value = value*this
     }
@@ -18,13 +18,13 @@ fun Long.power(pow:Int):Long{
     return value
 }
 
-fun Long.absolute():Long {
+fun Int.absolute():Int {
     if(this < 0)
         return this*-1
     return this
 }
 
-fun Long.log(logValue:Int = 2):Int {
+fun Int.log(logValue:Int = 2):Int {
 
     var value = 0;
     var originalValue = this
@@ -38,11 +38,11 @@ fun Long.log(logValue:Int = 2):Int {
     return value
 }
 
-fun Long.factorial():Long{
+fun Int.factorial():Int{
 
     if(this <= 1) return 1
 
-    var value = 1L
+    var value = 1
 
     for(i in 1..this)
         value = value*i
@@ -50,13 +50,13 @@ fun Long.factorial():Long{
     return value
 }
 
-fun Long.primeFactor():List<Long>{
+fun Int.primeFactor():List<Int>{
 
-    var primeList = ArrayList<Long>()
-    var value:Long = this
+    var primeList = ArrayList<Int>()
+    var value:Int = this
 
     for (i in 2 until value) {
-        while (value % i === 0L) {
+        while (value % i === 0) {
             primeList.add(i)
             value = value / i
         }
@@ -65,13 +65,13 @@ fun Long.primeFactor():List<Long>{
     return primeList
 }
 
-fun Long.fibonacci():Long{
+fun Int.fibonacci():Int{
 
-    var value:Long = 1L
-    var prevValue:Long = 0L
+    var value:Int = 1
+    var prevValue:Int = 0
 
-    if(this == 1L || this == 2L)
-        return 1L
+    if(this == 1 || this == 2)
+        return 1
 
     for(i in 3..this)
     {
@@ -82,26 +82,27 @@ fun Long.fibonacci():Long{
     return value
 }
 
-fun Long.isNegative():Boolean{
+fun Int.isNegative():Boolean{
     if(this < 0) return true
     return false
 }
 
-fun Long.isPositive():Boolean{
+fun Int.isPositive():Boolean{
     if(this < 0) return false
     return true
 }
 
-fun Long.isPrime():Boolean{
+fun Int.isPrime():Boolean{
 
-    if(this <= 1 || this%2 == 0L)
+    if(this <= 1 || this%2 == 0)
         return false
 
     for (i in 3..this/2 step 2)
     {
-        if(this % i == 0L)
+        if(this % i == 0)
             return false
     }
 
     return true
 }
+
