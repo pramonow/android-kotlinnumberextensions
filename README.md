@@ -14,10 +14,9 @@ Number Extensions for Kotlin
 Dependency
 
 	dependencies {
-	        implementation 'com.github.pramonow:android-kotlinnumberextensions:Tag'
+	        implementation 'com.github.pramonow:android-kotlinnumberextensions:-SNAPSHOT'
 	}
-  
-
+	
 
 List of mathemathical formula:
 
