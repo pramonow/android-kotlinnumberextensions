@@ -36,6 +36,12 @@ List of mathemathical formula:
 | Inverse       |X            |X            |V            |V           |
 | Round         |X            |X            |V            |V           |
 
+You can also check the extensions provided by calling
+    
+    var integerNumber = 5
+    var msg = integerNumber.check() //It will return message for types and provided extensions
+    //It is usable for any object that extends Number (except for Number itself)
+
 Calling it as simple as
 
     var integerNumber = 5;
